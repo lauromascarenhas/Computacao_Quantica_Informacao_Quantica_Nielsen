@@ -1,0 +1,21 @@
+\chapter{Algoritmos Quânticos de Busca}
+
+\section{O Algoritmo Quânticos de Busca}
+
+\section{Busca Quântica Como Uma Simulação Quântica}
+
+A exatidão dos algoritmos quânticos de busca são facilmente verificáveis, mas não é de forma alguma óbvio como alguém sonharia com tal algoritmo a partir do estado de ignorância. Nesta seção nós iremos derivar um meio heurístico pelo qual podemos derivar um algoritmo quântic de busca, na esperança de emprestar alguma intuição quanto à complicada tarefa de design de algoritmos quânticos. Como efeito colateral útil, nós obtemos uma caminhada quântica determinista. Como nosso objetivo é obter insights em vez de generalidade, assumiremos, por questão de simplicidade, que o problema de busca tem exatamente uma solução $x$.
+
+Nosso método envolve duas etapas. Primeiro, nós escolheremos um Hamiltoniano que resolve o problema. Mais precisamente nós escreveremos um Hamiltoniano $\Hamil$ que depende da solução $x$ e um estado inicial $\ket{\psi}$, tal que, um sistema quântico que evolui com $\Hamil$ muda de $\ket{\psi}$ para $\ket{x}$ após um tempo descrito. uma vez que tenhamos encontrado tal Hamiltoniano e estado inicial, podemos passar para a segunda etapa, que é tentar simular o ação do Hamiltoniano usando um circuito quântico. Supreendentemente, seguir este processedimento leva muito rapidamente ao algoritmo de busca quântica.
+
+Supondo que o algoritmo inicie com o computador quântico no estado $\ket{\psi}$. É conveniente deixar $\ket{\psi}$ indeterminado até entendermos a dinâmica do algoritmo. O objetivo de uma busca quântica é o de $\ket{\psi}$ para $\ket{x}$ ou alguma aproximação do mesmo. Que Hamiltoniano poderíamos advinhar que fazem um bom trabalho ao causar tal evolução? Uma sugestão simples é advinhar um Hamiltoniano contruído inteiramente a partir dos termos $\ket{\psi}$ e $\ket{x}$\footnote{Em outras palavras, $\Hamil \doteq \left\{\ket{\psi}, \ket{x}\right\} $}. Assim, o Hamiltoniano deve ser uma soma de termos como $\ket{\psi}\bra{\psi}$, $\ket{x}\bra{x}$, $\ket{\psi}\bra{x}$ e $\ket{x}\bra{\psi}$. Talvez a escolha mais simples ao longo dessas linhas sejam os Hamiltoniano
+\begin{equation}
+    \Hamil = \ket{x}\bra{x} + \ket{\psi}\bra{\psi}
+    \label{H_escolhido}
+\end{equation}
+
+\begin{equation}
+    \Hamil = \ket{x}\bra{\psi} + \ket{\psi}\bra{x}
+\end{equation}
+
+Estes dois algoritmos levam ao algoritmo de busca quântica. Por hora, nos restrigiremos a análise do Hamiltoniano da equação \ref{H_escolhido}

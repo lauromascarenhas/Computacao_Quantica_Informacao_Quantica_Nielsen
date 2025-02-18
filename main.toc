@@ -1,0 +1,4 @@
+\babel@toc {brazil}{}\relax 
+\contentsline {chapter}{\numberline {1}Algoritmos Quânticos de Busca}{7}{}%
+\contentsline {section}{\numberline {1.1}O Algoritmo Quânticos de Busca}{7}{}%
+\contentsline {section}{\numberline {1.2}Busca Quântica Como Uma Simulação Quântica}{7}{}%

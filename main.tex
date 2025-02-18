@@ -1,0 +1,41 @@
+\documentclass[a4paper, 10pt]{book}
+\usepackage[
+    top=2cm,
+    left=2cm,
+    right=2cm,
+    bottom=1.5cm
+]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{graphicx} % Required for inserting images
+
+
+\newcommand{\ket}[1]{\vert #1 \rangle}
+\newcommand{\Hamil}{\mathcal{H}}
+\newcommand{\bra}[1]{\langle #1 \vert}
+
+
+\title{
+    \Huge\bf Computação Quântica e Informação Quântica - Nielsen \\
+    {\large\it Tradução livre e notas de estudos}
+}
+\author{Lauro de Jesus Mascarenhas}
+\date{February 2025}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\chapter*{}
+% =====================================================================
+A ideia deste projeto é realizar uma tradução do livro do Nielsen e 
+Chuang. A tradução está sendo realizada de forma livre e as equações e
+exercícios estão sendo resolvidos. Foi utilizado ferramentas de IA para
+melhorar algumas partes do texto.
+% =====================================================================
+\include{Capitulos/cap6}
+
+\end{document}
