@@ -2,7 +2,7 @@
 
 \section{O Algoritmo Quânticos de Busca}
 
-\section{Busca Quântica Como Uma Simulação Quântica}
+\section{Busca Quântica Como Uma Simulação Quântica} 
 
 A exatidão dos algoritmos quânticos de busca são facilmente verificáveis, mas não é de forma alguma óbvio como alguém sonharia com tal algoritmo a partir do estado de ignorância. Nesta seção nós iremos derivar um meio heurístico pelo qual podemos derivar um algoritmo quântic de busca, na esperança de emprestar alguma intuição quanto à complicada tarefa de design de algoritmos quânticos. Como efeito colateral útil, nós obtemos uma caminhada quântica determinista. Como nosso objetivo é obter insights em vez de generalidade, assumiremos, por questão de simplicidade, que o problema de busca tem exatamente uma solução $x$.
 
@@ -18,4 +18,29 @@ Supondo que o algoritmo inicie com o computador quântico no estado $\ket{\psi}$
     \Hamil = \ket{x}\bra{\psi} + \ket{\psi}\bra{x}
 \end{equation}
 
-Estes dois algoritmos levam ao algoritmo de busca quântica. Por hora, nos restrigiremos a análise do Hamiltoniano da equação \ref{H_escolhido}
+Estes dois algoritmos levam ao algoritmo de busca quântica. Por hora, nos restrigiremos a análise do Hamiltoniano da equação \ref{H_escolhido}. Relembrando da seção 2.2.2 (Ainda será traduzida) que após um tempo $t$, o estado de um sistema quântico evoluindo de acordo com $\Hamil$ e estado inicial $\ket{\psi}$ é dado por
+\begin{equation}
+    e^{-i\Hamil t}\ket{\psi}
+\end{equation}
+Intuitivamente, parece muito bom: para um $t$ pequeno o efeito da evolução é levar $\ket{\psi}$ para $(1-it\Hamil)\ket{\psi}=(1-it)\ket{\psi}-it\prodInterno{x}{\psi}\ket{x}$.
+\begin{proof}
+    Expandindo a exponencial em séries de Taylor obtemos
+    \[
+        e^{-i\Hamil t}\ket{\psi} = \left[ 1 - it\Hamil + \cdots \right]\ket{\psi}
+    \] 
+    para $t$ suficientemente pequeno, os termo $t^2,\,t^3,\,\cdots$ ficam cada vez menores, por tanto, não apresentam influência significativa ao problema e podem ser desconsideradas. Assim:
+    \begin{equation*}
+        \begin{split}
+            e^{-i\Hamil t}\ket{\psi}    &= \left(1 - it\Hamil\right)\ket{\psi}\\
+                                        &= \ket{\psi} -it\Hamil\ket{\psi} \\
+                                        &= \ket{\psi} -it\left(\ket{x}\bra{x} + \ket{\psi}\bra{\psi}\right)\ket{\psi}\\
+                                        &= \ket{\psi} -it\ket{\psi} -it\prodInterno{x}{\psi}\ket{x}
+        \end{split}
+    \end{equation*}
+    e por tanto
+    \begin{equation*}
+        e^{-i\Hamil t}\ket{\psi} = (1-it)\ket{\psi}-it\prodInterno{x}{\psi}\ket{x}
+    \end{equation*}
+\end{proof}
+
+Ou seja, o estado $\ket{\psi}$ é girado ligeiramente em direção à $\ket{x}$. Na verdade, vamos fazer uma analise completa, com o objetivo de determinar se há um $t$ tal que $e^{-i\Hamil t}\ket{\psi} = \ket{x}$.
